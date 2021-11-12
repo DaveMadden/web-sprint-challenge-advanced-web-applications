@@ -8,29 +8,23 @@ const initialCreds = {username: '', password: ''}
 const Login = () => {
 
     const [creds, setCreds] = useState(initialCreds);
-    // const [isLoading, setIsLoading] = useState(false);
     const [loginError, setLoginError] = useState("");
     const history = useHistory();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setIsLoading(true);
-        console.log("loginSubmitted");
         axios.post('http://localhost:5000/api/login', creds)
             .then(resp => {
                 localStorage.setItem('token', resp.data.token);
                 history.push('/view');
             })
             .catch(err => {
-                console.error(err);
                 setLoginError(err);
             })
-            // .finally(setIsLoading(false))
 
     }
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setCreds({
             ...creds,
             [e.target.name]: e.target.value

@@ -68,10 +68,10 @@ In this project, you will demonstrate your mastery of these skills by creating *
 
 ### Advanced Testing
 > *Add the following tests within Article.test.js.*
-* [ ] Build a test that shows the `Article` component, given the correct props, can render without errors.
-* [ ] Build a test that shows that when a correctly formatted article is passed into the `Article` component, the correct headline, author, summary and body are displayed.
-* [ ] The `Article` component should display "Associated Press" when an author attribute is not avalible. Build a test that verifies that that is true.
-* [ ] Build a test that show that when the deleteButton is pressed on an Article, the handleDelete functional property is executed.
+* [X] Build a test that shows the `Article` component, given the correct props, can render without errors.
+* [X] Build a test that shows that when a correctly formatted article is passed into the `Article` component, the correct headline, author, summary and body are displayed.
+* [X] The `Article` component should display "Associated Press" when an author attribute is not avalible. Build a test that verifies that that is true.
+* [X] Build a test that show that when the deleteButton is pressed on an Article, the handleDelete functional property is executed.
 
 > *Add the following tests within View.test.js.*
 * [ ] Build a test that shows the `View` component can render zero articles without errors. Make sure the mock service called made when View mounts.
