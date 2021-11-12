@@ -1,18 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 import Article from './Article';
 import EditForm from './EditForm';
+import articleService from '../services/articleServices';
+import axiosWithAuth from '../utils/axiosWithAuth';
+
 
 const View = (props) => {
     const [articles, setArticles] = useState([]);
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
+    const { push } = useHistory();
 
     const handleDelete = (id) => {
+        axiosWithAuth()
+            .delete(`/articles/${id}`)
+            .then(resp=>{
+                setArticles(resp.data);
+            })
+            .catch(err=>{
+                console.error(err);
+            })
     }
 
     const handleEdit = (article) => {
+       axiosWithAuth()
+            .put(`/articles/${editId}`, article)
+            .then(resp=>{
+                setArticles(resp.data);
+            })
+            .catch(err=>{
+                console.error(err);
+            })
+            .finally(setEditing(false))
+
     }
 
     const handleEditSelect = (id)=> {
@@ -23,6 +47,10 @@ const View = (props) => {
     const handleEditCancel = ()=>{
         setEditing(false);
     }
+
+    useEffect(()=>{
+        articleService(setArticles)
+    }, [])
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>
