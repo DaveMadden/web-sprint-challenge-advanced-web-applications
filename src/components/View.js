@@ -21,7 +21,7 @@ const View = (props) => {
                 setArticles(resp.data);
             })
             .catch(err=>{
-                console.error("error on handle delete");
+                console.error(err);
             })
     }
 
@@ -32,10 +32,9 @@ const View = (props) => {
                 setArticles(resp.data);
             })
             .catch(err=>{
-                console.error("error on handle edit");
+                console.error(err);
             })
             .finally(setEditing(false))
-
     }
 
     const handleEditSelect = (id)=> {
@@ -51,6 +50,7 @@ const View = (props) => {
         fetchService()
     }, []);
 
+    //has to be a separate function (and async) so we're not setting state with a promise (or inside a useEffect). Other option was updating state in articleService() by passing setArticles as props. That functioned just fine, but was not testable like the instructions want, so refactored to do it this way.
     const fetchService = async () =>{
         const data = await articleService();
         setArticles(data);

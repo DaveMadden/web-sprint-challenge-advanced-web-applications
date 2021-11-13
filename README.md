@@ -74,8 +74,8 @@ In this project, you will demonstrate your mastery of these skills by creating *
 * [X] Build a test that show that when the deleteButton is pressed on an Article, the handleDelete functional property is executed.
 
 > *Add the following tests within View.test.js.*
-* [ ] Build a test that shows the `View` component can render zero articles without errors. Make sure the mock service called made when View mounts.
-* [ ] Build a test that shows the `View` component can render three articles without errors. Make sure the mock service called made when View mounts.
+* [X] Build a test that shows the `View` component can render zero articles without errors. Make sure the mock service called made when View mounts.
+* [X] Build a test that shows the `View` component can render three articles without errors. Make sure the mock service called made when View mounts.
 
 ## Important Notes:
 * You are welcome to create additional files but **do not move or rename existing files** or folders.

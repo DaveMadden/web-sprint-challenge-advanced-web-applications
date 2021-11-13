@@ -1,16 +1,13 @@
 import axiosWithAuth from "../utils/axiosWithAuth"
 
-// const articleService = (setArticles)=> {
 const articleService = ()=> {
     return axiosWithAuth()
             .get('/articles')
             .then(resp=>{
-                // setArticles(resp.data)
-                return resp.data
+                return resp.data //can also pass setArticles in via props and set state here. it totally works, just won't test right.
             })
             .catch (err=> {
-                // console.error(err);
-                console.error("error on articleservice")
+                console.error(err);
             })
 }
 
