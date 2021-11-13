@@ -46,10 +46,15 @@ const View = (props) => {
     const handleEditCancel = ()=>{
         setEditing(false);
     }
-
+    
     useEffect(()=>{
-        console.log(articleService(setArticles))
+        fetchService()
     }, []);
+
+    const fetchService = async () =>{
+        const data = await articleService();
+        setArticles(data);
+    }
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>

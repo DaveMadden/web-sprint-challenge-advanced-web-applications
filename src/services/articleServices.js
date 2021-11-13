@@ -1,10 +1,11 @@
 import axiosWithAuth from "../utils/axiosWithAuth"
 
-const articleService = (setArticles)=> {
+// const articleService = (setArticles)=> {
+const articleService = ()=> {
     return axiosWithAuth()
             .get('/articles')
             .then(resp=>{
-                setArticles(resp.data)
+                // setArticles(resp.data)
                 return resp.data
             })
             .catch (err=> {

@@ -38,9 +38,9 @@ test("renders zero articles without errors", async () => {
 
     render(<View/>)
 
-    const articles = await screen.findAllByTestId("article");
+    const article = screen.queryByTestId("article");
 
-    expect(articles.length).toBe(0)
+    expect(article).not.toBeTruthy();
 
 });
 
@@ -50,14 +50,8 @@ test("renders three articles without errors", async ()=> {
     render(<View/>)
 
     const articles = await screen.findAllByTestId("article");
-    console.log(articles[0]);
-
-    waitFor(()=>{
-        expect(articles.length).toBe(3);
-    })
-    // const articles = await screen.findAllByTestId("article");
-    // console.log(articles);
-    // expect(articles.length).toBe(3);
+    
+    expect(articles.length).toBe(3);
 });
 
 //Task List
