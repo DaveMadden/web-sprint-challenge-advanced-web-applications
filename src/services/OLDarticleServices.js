@@ -1,7 +1,7 @@
 import axiosWithAuth from "../utils/axiosWithAuth"
 
 const articleService = (setArticles)=> {
-    return axiosWithAuth()
+    axiosWithAuth()
             .get('/articles')
             .then(resp=>{
                 setArticles(resp.data)

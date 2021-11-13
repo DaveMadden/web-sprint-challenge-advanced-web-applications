@@ -5,7 +5,6 @@ import View from './View';
 import articleService from "../services/articleServices";
 jest.mock("../services/articleServices");
 
-const testEmpty = [];
 const testThree = [
     {
         id: 1,
@@ -35,9 +34,13 @@ const testThree = [
 ];
 
 test("renders zero articles without errors", async () => {
-    // articleService.mockResolvedValueOnce(testEmpty);
+    articleService.mockResolvedValueOnce([]);
 
-    // render(<View/>)
+    render(<View/>)
+
+    const articles = await screen.findAllByTestId("article");
+
+    expect(articles.length).toBe(0)
 
 });
 

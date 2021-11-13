@@ -48,9 +48,8 @@ const View = (props) => {
     }
 
     useEffect(()=>{
-        articleService(setArticles)
-        console.log("USE EFFECT IN VIEW")
-    }, [])
+        console.log(articleService(setArticles))
+    }, []);
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>
@@ -74,16 +73,6 @@ const View = (props) => {
 
 export default View;
 
-//Task List:
-//1. Build and import axiosWithAuth module in the utils.
-//2. When the component mounts, make an http request that adds all articles to state.
-//3. Complete handleDelete method. It should make a request that delete the article with the included id.
-//4. Complete handleEdit method. It should make a request that updates the article that matches the included article param.
-
-
-const Container = styled.div`
-    padding: 0.5em;
-`
 const HeaderContainer = styled.h1`
     border-bottom: solid black 2px;
     padding: 1em;
