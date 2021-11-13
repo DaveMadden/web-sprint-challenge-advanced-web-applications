@@ -13,7 +13,6 @@ const View = (props) => {
     const [articles, setArticles] = useState([]);
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
-    const { push } = useHistory();
 
     const handleDelete = (id) => {
         axiosWithAuth()
@@ -22,7 +21,7 @@ const View = (props) => {
                 setArticles(resp.data);
             })
             .catch(err=>{
-                console.error(err);
+                console.error("error on handle delete");
             })
     }
 
@@ -33,7 +32,7 @@ const View = (props) => {
                 setArticles(resp.data);
             })
             .catch(err=>{
-                console.error(err);
+                console.error("error on handle edit");
             })
             .finally(setEditing(false))
 
@@ -50,6 +49,7 @@ const View = (props) => {
 
     useEffect(()=>{
         articleService(setArticles)
+        console.log("USE EFFECT IN VIEW")
     }, [])
 
     return(<ComponentContainer>

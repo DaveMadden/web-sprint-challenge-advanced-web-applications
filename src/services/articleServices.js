@@ -5,9 +5,11 @@ const articleService = (setArticles)=> {
             .get('/articles')
             .then(resp=>{
                 setArticles(resp.data)
+                return resp.data
             })
             .catch (err=> {
-                console.error(err);
+                // console.error(err);
+                console.error("error on articleservice")
             })
 }
 
